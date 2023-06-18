@@ -1,5 +1,6 @@
 import  { useState } from "react";
 import css from './Form.module.css';
+import PropTypes from 'prop-types';
 
 export const Form = ({ onSubmit }) => {
     const [name, setName] = useState('')
@@ -59,3 +60,6 @@ export const Form = ({ onSubmit }) => {
     
 };
 
+Form.protoTypes = {
+    onSubmit: PropTypes.func.isRequired,
+}
