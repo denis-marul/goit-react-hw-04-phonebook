@@ -8,7 +8,7 @@ export const Form = ({ onSubmit }) => {
 
     const handleChange = event => {
         
-        const { name, value } = event.currentTarget
+        const { name, value } = event.target
         switch (name) {
             case 'name':
                 setName(value)
@@ -27,7 +27,6 @@ export const Form = ({ onSubmit }) => {
         onSubmit(name, number)
         setName('');
         setNumber('');
-        console.log(name, number);
     };
   
     

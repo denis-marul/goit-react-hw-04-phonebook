@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import css from './App.module.css';
 import { nanoid } from 'nanoid'
 import { Section } from 'components/Section/Section';
@@ -10,11 +10,12 @@ export const App = () => {
 
   const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
 
-  const [contacts, setContacts] = useState([...parsedContacts])
+  const [contacts, setContacts] = useState(parsedContacts)
   const [filter, setFilter] = useState('')
  
  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts))
+   localStorage.setItem('contacts', JSON.stringify(contacts))
+   
   }, [contacts]);
 
  
@@ -33,7 +34,6 @@ export const App = () => {
    };  
    
    setContacts(prevState =>  [contact, ...prevState ])
-   console.log(contacts);
   };
 
   const onChangeFilter = event => {
