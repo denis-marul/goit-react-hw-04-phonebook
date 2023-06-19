@@ -7,10 +7,8 @@ import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
 
 export const App = () => {
-
-  const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-
-  const [contacts, setContacts] = useState(parsedContacts)
+  
+  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')))
   const [filter, setFilter] = useState('')
  
  useEffect(() => {
@@ -42,7 +40,8 @@ export const App = () => {
   };
 
   const deleteContact = contactId => {
-   setContacts(contacts.filter(contact => contact.id !== contactId),)
+    setContacts(prevState => prevState.filter(contact => contact.id !== contactId) )
+  
   }
     const normalizedFilter = filter.toLowerCase();
     const visiableContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
